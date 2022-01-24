@@ -18,6 +18,9 @@ from i3ipc import Connection, Event
 import keyboard
 import os
 
+tiling = True 
+bar = False 
+
 def toggle_tiling():
     global tiling
     tiling = not tiling	
@@ -25,7 +28,7 @@ def toggle_tiling():
         message = "Tiling Auto"
     else:
         message = "Tiling Manual"
-    SendNotification(message)
+    send_notification(message)
 
 def set_tiling(i3, e):
     win = i3.get_tree().find_focused()
@@ -35,11 +38,20 @@ def set_tiling(i3, e):
         else:
             i3.command('split h')
 
-def SendNotification(message):
-	notification = "notify-send -t 1500 " + message
-	os.system(notification)
+def toggle_bar(i3):
+    global bar
+    bar = not bar	
+    if bar:
+        i3.command('bar mode dock')
+        message = "Bar Shown"
+    else:
+        i3.command('bar mode invisible')
+        message = "Bar Hidden"
+    send_notification(message)
 
-tiling = True 
+def send_notification(message):
+    notification = "notify-send -t 1500 " + message
+    os.system(notification)
 
 def main():
     i3 = Connection()
@@ -47,6 +59,10 @@ def main():
     # Auto tiling
     i3.on(Event.WINDOW_FOCUS, set_tiling) 
     keyboard.add_hotkey('ctrl+alt+t', lambda: toggle_tiling()) 
+
+    # Toggle Bar
+    keyboard.add_hotkey('ctrl+alt+w', lambda: toggle_bar(i3))
+
     i3.main()
 
 if __name__ == "__main__":

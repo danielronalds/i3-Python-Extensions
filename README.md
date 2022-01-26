@@ -3,10 +3,10 @@ This script aims to extend the features of the i3wm through the i3ipc python lib
 
 ![](showcase.gif)
 
-###Script Features
+## Script Features
 - A basic script to toggle the i3bar to manage systray icons
-- A floating mode that is workspace specific
 - Togglable Autotiling of windows in a spiral pattern
+- A floating mode that is workspace specific
 
 ## Installation
 First install the required python librarys, this will need to be installed with sudo as the script requires sudo to run

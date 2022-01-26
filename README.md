@@ -1,9 +1,9 @@
 # i3_python_extensions
 This script aims to extend the features of the i3wm through the i3ipc python library
 
-![](autotiling.gif)
+![](showcase.gif)
 
-Included features are
+###Script Features
 - A basic script to toggle the i3bar to manage systray icons
 - A floating mode that is workspace specific
 - Togglable Autotiling of windows in a spiral pattern

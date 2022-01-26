@@ -8,8 +8,6 @@ This script aims to extend the features of the i3wm through the i3ipc python lib
 - A script to toggle the i3bar to manage systray icons
 - Togglable Autotiling of windows in a spiral pattern
 
-###### Keybindings
-
 | Keybinding | Description |
 | --- | --- |
 | Ctrl+Alt+T | Toggles autotiling |

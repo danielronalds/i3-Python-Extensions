@@ -43,7 +43,7 @@ class Floating:
         if floating_workspaces[current_workspace]:
             i3.command("floating enable")
             if resize:
-                i3.command("resize set 960 720")
+                i3.command("resize set 800 600")
             if floating_once:
                 floating_once = False
                 floating_workspaces[current_workspace] = False
